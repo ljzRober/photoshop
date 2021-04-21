@@ -1,0 +1,26 @@
+
+<view class="flex-wrp"  style="flex-direction:row">
+  <van-image class="homeimage"
+  width="19rem"
+  height="9rem"
+  fit="contain"
+  src="/assets/photo/homephoto.png"
+/>
+<van-grid class="homesecond" gutter="{{ 15 }}" column-num="3" square custom-class="homesecond-custom">
+  <van-grid-item class="homesecond-item" icon="photo-o" text="制作证件照" text-class="homesecond-item-text" content-class="homesecond-item-content1"/>
+  <van-grid-item class="homesecond-item" icon="points" text="更换底色" text-class="homesecond-item-text" content-class="homesecond-item-content2" bindtap="choosecgcolor"/>
+  <van-grid-item class="homesecond-item" icon="shrink" text="裁剪证件照" text-class="homesecond-item-text" content-class="homesecond-item-content3"/>
+</van-grid>
+
+<view class="homefont">热门规格</view>
+<van-grid class="homethird" gutter="{{ 15 }}" column-num="2" custom-class="homethird-custom" border="{{false}}">
+  <van-grid-item use-slot wx:for="{{ classify }}" wx:for-item="item" wx:key="title" content-class="homethird-item-content" >
+    <view>
+    <view class="hometitle">{{item.title}}</view>
+    <view class="homediscribe">{{item.describe}}</view>
+    <button class="homesupport">{{item.support}}</button>
+  </view>
+  </van-grid-item>
+</van-grid>
+
+</view>
