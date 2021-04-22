@@ -3,12 +3,13 @@
     "pages/index/index",
     "pages/photo/photo",
     "pages/camera/camera",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "ljz的照片工坊",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -19,6 +20,12 @@
         "pagePath": "pages/index/index",
         "iconPath": "assets/tabbar/首页5.png",
         "selectedIconPath": "assets/tabbar/首页7.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/order/order",
+        "iconPath": "assets/tabbar/分类5.png",
+        "selectedIconPath": "assets/tabbar/分类7.png"
       },
       {
         "text": "个人中心",
@@ -34,7 +41,13 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-share-sheet": "@vant/weapp/share-sheet/index",
+    "van-toast": "@vant/weapp/toast/index"
   },
   
   "sitemapLocation": "sitemap.json"

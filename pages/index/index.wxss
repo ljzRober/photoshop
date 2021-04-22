@@ -1,3 +1,11 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
 .homeimage{
   margin-left: 0.5rem;
 }

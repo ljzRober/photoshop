@@ -1,1 +1,39 @@
-/* me/me.wxss */
+.top{
+  height: 80px;
+  width: 100%;
+  background:#EA5149;
+  padding-top: 30px;
+  display: block;}
+.userinfo{
+    padding-bottom: 5px;
+    float: left;}
+image{
+      width: 120rpx;
+      height:120rpx;
+      margin: 10rpx;
+      border-radius: 1px;
+      border: 1px #D0D0D0 solid;
+    }
+.name{
+    padding-top: 20px;
+    padding-left: 5px;
+    color: #FFFFFF;
+    font-size: 16px;
+    float: left;}
+.notice{
+      color: #D8D8D8;
+      font-size: 12px;
+    }
+
+.container{
+  margin-top: 2rem;
+  width: 19rem;
+  margin-left: 0.5rem;
+  border-radius: 10%
+}
+.container-custom{
+  background-color: gray !important;
+  color: #D0D0D0 !important;
+  border: 10px !important;
+  border-radius: 10% !important;
+}
