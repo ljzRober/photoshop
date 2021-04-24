@@ -1,1 +1,14 @@
-<van-empty description="暂无订单" />
+<van-empty description="暂无订单" wx:if="{{!hasdata}}"/>
+<view wx:for="{{logs}}" wx:for-item="item" wx:key="date">
+<van-card wx:if="{{hasdata}}" custom-class="card-custom"
+  num="1"
+  price="2.00"
+  desc="{{item.imginfo.size}}"
+  title="{{item.imginfo.imgcolor}}"
+  thumb="{{ item.imgid }}"
+>
+<view slot="footer">
+    <view>{{item.date}}</view>
+  </view>
+  </van-card>
+</view>

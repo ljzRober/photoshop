@@ -50,7 +50,8 @@
     "van-share-sheet": "@vant/weapp/share-sheet/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-card": "@vant/weapp/card/index"
   },
   
   "sitemapLocation": "sitemap.json"

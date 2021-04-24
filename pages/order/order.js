@@ -1,66 +1,63 @@
 // pages/order/order.js
+
+const fmdate = require('../../utils/fmdate.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgid:"",
+    date:"",
+    imginfo:{},
+    logs:[],
+    hasdata:false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  getimglogs:function(){
+    const that = this;
+    const userinfo = wx.getStorageSync('userinfo')
+    wx.cloud.callFunction({
+      name:"getimglogs",
+      data:{
+        openid:userinfo.openid
+      },
+      success:res=>{
+        console.log("res",res)
+        that.setData({
+          logs:res.result.data.map(log=>{
+            var date = fmdate.formatTime(new Date(log.date))
+            log.date = date
 
+            wx.cloud.getTempFileURL({
+              fileList: [log.imgid],
+              success: res => {
+                // fileList 是一个有如下结构的对象数组
+                // [{
+                //    fileID: 'cloud://xxx.png', // 文件 ID
+                //    tempFileURL: '', // 临时文件网络链接
+                //    maxAge: 120 * 60 * 1000, // 有效期
+                // }]
+                console.log(res.fileList)
+                log.imgid = res.fileList[0].tempFileURL
+              },
+              fail: console.error
+            })
+
+            return log
+          }),
+          hasdata:true
+        })
+        console.log("logs",that.data.logs)
+      },
+      fail:res=>{
+        console.log("res",res)
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.getimglogs()
   }
 })

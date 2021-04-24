@@ -1,1 +1,6 @@
-/* pages/order/order.wxss */
+.card-custom{
+  width: 95%;
+  margin-left: 0.5rem;
+  border-radius: 10%;
+  margin-bottom: 0.5rem;
+}

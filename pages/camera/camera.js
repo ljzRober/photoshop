@@ -45,18 +45,42 @@ Page({
               loadingHidden: true
             });
             tempImagePath1 = self.data.tempImagePath;
-            console.log(tempImagePath1)
-            //图片上传云端
-            wx.cloud.uploadFile({
-              cloudPath: imgname, // 上传至云端的路径
-              filePath: tempImagePath1, // 小程序临时文件路径
-              success: res => {
-                // 返回文件 ID
-                console.log(res.fileID)
-
-              },
-              fail: console.error
+            console.log(tempImagePath1);
+            var tempImagePath2 = "";
+            //文件下载到本地转为临时文件
+            wx.downloadFile({
+              url: tempImagePath1, //仅为示例，并非真实的资源
+              success (res) {
+                // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+                if (res.statusCode === 200) {
+                  tempImagePath2 = res.tempFilePath; 
+                  console.log("tempImagePath2",tempImagePath2)
+                  //图片上传云端
+                  wx.cloud.uploadFile({
+                    cloudPath: imgname, // 上传至云端的路径
+                    filePath: tempImagePath2, // 小程序临时文件路径
+                    success: res1 => {
+                      // 返回文件 ID
+                      console.log(res1.fileID)
+                      var imgid = res1.fileID;
+                      let userinfo = wx.getStorageSync('userinfo');
+                      var openid = userinfo.openid;
+                      wx.cloud.callFunction({
+                        name:"createimglogs",
+                        data:{
+                          openid:openid,
+                          imgid:imgid,
+                          date:Date.now(),
+                          imginfo:info
+                        }
+                      })
+                    },
+                    fail: console.error
+                  })
+                }
+              }
             })
+            
           })
           .catch(e => {
             console.log(e);
