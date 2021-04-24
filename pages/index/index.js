@@ -5,37 +5,42 @@ Page({
     classify:[
       {
         title:"一寸",
-        describe:"像素尺寸：295x413 px",
+        describe:"295x413",
         support:"电子照"
       },
       {
         title:"二寸",
-        describe:"像素尺寸：413x579 px",
+        describe:"413x579",
         support:"电子照"
       },
       {
         title:"英语四六级考试",
-        describe:"像素尺寸：144x192 px",
+        describe:"144x192",
         support:"电子照"
       },
       {
         title:"普通话水平测试",
-        describe:"像素尺寸：390x567 px",
+        describe:"390x567",
         support:"电子照"
       },
       {
         title:"国考",
-        describe:"像素尺寸：413x531 px",
+        describe:"413x531",
         support:"电子照"
       },
       {
         title:"简历照片",
-        describe:"像素尺寸：295x413 px",
+        describe:"295x413",
         support:"电子照"
       },
       {
         title:"硕士研究生考试",
-        describe:"像素尺寸：390x567 px",
+        describe:"390x567",
+        support:"电子照"
+      },
+      {
+        title:"德福考试",
+        describe:"360x480",
         support:"电子照"
       },
     ],
@@ -43,6 +48,8 @@ Page({
     openid:"",
     hasuserinfo:false,
     show: false,
+    asheetshow:false,
+    tmp:{}
   },
   onLoad: function () {
     const userinfo = wx.getStorageSync('userinfo')
@@ -119,4 +126,18 @@ Page({
       duration: 2000
     })
   },
+  changeasshow(event){
+    this.setData({
+      asheetshow:true,
+      tmp:event.currentTarget.dataset.tmp
+    })
+  },
+  onClose(){
+    this.setData({ asheetshow: false });
+  },
+  choosephoto(){
+    wx.navigateTo({
+      url: '../photo1/photo1?orgPage=pages/index',
+    })
+  }
 })

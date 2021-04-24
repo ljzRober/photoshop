@@ -10,12 +10,12 @@
   </view>
   <view class="container" >
     <van-cell-group  custom-class="container-custom">
-    <van-cell  is-link  title="反馈"  link-type="navigateTo"  icon="records"  url=""/>
-    <van-cell  is-link  title="分享"  link-type="navigateTo"  icon="share-o"  bind:click="onClick" url=""/>
+    <van-cell  is-link  title="反馈" size="large" link-type="navigateTo"  icon="records"  url=""/>
+    <van-cell  is-link  title="分享" size="large" link-type="navigateTo"  icon="share-o"  bind:click="onClick" url=""/>
     <van-share-sheet show="{{ showShare }}" title="立即分享给好友" options="{{ options }}"
         bind:select="onSelect" bind:close="onClose" />
-    <van-cell  is-link  title="社区"  link-type="navigateTo"  icon="comment-o" url=""/>
-    <van-cell  is-link  title="优惠券"  link-type="navigateTo"  icon="coupon-o" url=""/>
+    <van-cell  is-link  title="社区"  link-type="navigateTo" size="large" icon="comment-o" url=""/>
+    <van-cell  is-link  title="优惠券"  link-type="navigateTo" size="large" icon="coupon-o" url=""/>
   </van-cell-group>
   </view>
 </view>

@@ -4,7 +4,8 @@
     "pages/photo/photo",
     "pages/camera/camera",
     "pages/me/me",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/photo1/photo1"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -47,7 +48,9 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-share-sheet": "@vant/weapp/share-sheet/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   
   "sitemapLocation": "sitemap.json"

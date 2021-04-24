@@ -27,7 +27,7 @@ image{
 
 .container{
   margin-top: 2rem;
-  width: 19rem;
+  width: 20rem;
   margin-left: 0.5rem;
   border-radius: 10%
 }

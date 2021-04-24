@@ -15,16 +15,70 @@
   <van-grid-item class="homesecond-item" icon="photo-o" text="制作证件照" text-class="homesecond-item-text" content-class="homesecond-item-content1" 
   bindtap="posterr"/>
   <van-grid-item class="homesecond-item" icon="points" text="更换底色" text-class="homesecond-item-text" content-class="homesecond-item-content2" bindtap="choosecgcolor"/>
-  <van-grid-item class="homesecond-item" icon="shrink" text="裁剪证件照" text-class="homesecond-item-text" content-class="homesecond-item-content3"/>
+  <van-grid-item class="homesecond-item" icon="shrink" text="裁剪证件照" bindtap="choosephoto" text-class="homesecond-item-text" content-class="homesecond-item-content3"/>
 </van-grid>
 
 <view class="homefont">热门规格</view>
 <van-grid class="homethird" gutter="{{ 15 }}" column-num="2" custom-class="homethird-custom" border="{{false}}">
   <van-grid-item use-slot wx:for="{{ classify }}" wx:for-item="item" wx:key="title" content-class="homethird-item-content" >
+    <view data-tmp="{{item}}" bindtap="changeasshow">
+      <view class="hometitle">{{item.title}}</view>
+      <view class="homediscribe">像素尺寸：{{item.describe}}px</view>
+      <button class="homesupport">{{item.support}}</button>
+    </view>
     <view>
-    <view class="hometitle">{{item.title}}</view>
-    <view class="homediscribe">{{item.describe}}</view>
-    <button class="homesupport">{{item.support}}</button>
+    <van-action-sheet show="{{ asheetshow }}" title="{{tmp.title}}" bind:close="onClose">
+      <view style="flex-direction:column">
+        <view style="margin-left:0.5rem">
+          <van-icon name="checked" color="green" />
+          <text decode="{{true}}">支持电子照&nbsp;&nbsp;</text>
+          <van-icon name="info" color="red" />
+          <text>不支持冲印</text>
+        </view>
+        <view class="card1">
+          <view style="flex-direction:row">
+            <van-row gutter="20" custom-class="row-custom">
+              <van-col span="8"  offset="4" custom-class="col-custom">
+                <text>像素大小</text>
+                <text class="info-right">{{tmp.describe}}px</text>
+              </van-col>
+              <van-col span="4" offset="4" custom-class="col-custom">
+                <text>分辨率</text>
+                <text class="info-right">300DPI</text>
+              </van-col>
+            </van-row>
+          </view>
+        </view>
+        <view>
+        <view class="card2">
+          <view class="row">
+            <text>背景色</text>
+            <text class="textright">像素大小</text>
+          </view>
+          <view class="row">
+            <text>文件大小</text>
+            <text class="textright">无要求</text>
+          </view>
+          <view class="row">
+            <text>文件格式</text>
+            <text class="textright">jpg</text>
+          </view>
+          <view class="row">
+            <text>其他要求</text>
+            <text class="textright">无要求</text>
+          </view>
+        </view>
+      </view>
+      <view class="buttong" style="flex-direction:row;">
+      <button class='btn'  bindtap="chooseImage">
+          相册导入
+      </button>
+      <button class='btn'  bindtap="takePhoto">
+          开始拍摄
+      </button>
+    </view>
+    </view>
+    </van-action-sheet>
   </view>
   </van-grid-item>
 </van-grid>

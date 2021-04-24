@@ -2,9 +2,12 @@
    <view class="flex-wrp"  style="flex-direction:row">
       <view style="float:left;margin-left: 20rpx;width:60%">支持背景 </view>
       <view class="flex-wrp"  style="flex-direction:row">
-          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:red;"></view>
-          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:blue;"></view>
-          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:white; border:0.5rpx solid #808080;"></view>
+          <van-icon name="award" color="green" wx:if="{{redshow}}" size="25px"/>
+          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:red;" wx:if="{{!redshow}}" bindtap="tapred"></view>
+          <van-icon name="award" color="green" wx:if="{{blueshow}}" size="25px"/>
+          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:blue;" wx:if="{{!blueshow}}" bindtap="tapblue"></view>
+          <van-icon name="award" color="green" wx:if="{{whiteshow}}" size="25px"/>
+          <view style="width:20px;height:20px;margin-left: 20rpx;border-radius:50%;background-color:white; border:0.5rpx solid #808080;" wx:if="{{!whiteshow}}" bindtap="tapwhite"></view>
       </view>
    </view>
 

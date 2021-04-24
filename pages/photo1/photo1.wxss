@@ -1,0 +1,60 @@
+.imgcontainer{
+  margin-left: 0.5rem;
+  width: 95%;
+  height: 25rem;
+  background-color: whitesmoke;
+  display: flex;
+  text-align: center;
+  flex-direction:column;
+}
+.flex-wrp {display: flex;}
+.btn{
+  text-align: center;
+  position: fixed;
+  width: 90%;
+  bottom: 0.1rem;
+  left: 5%;
+  background-color: purple;
+}
+.addimage{
+  display: inline-block;
+  margin-top: 35%;
+  margin-left: 35%;
+  height: 100px;
+  width: 100px;
+}
+/*actionsheet*/
+.row-custom{
+  flex-direction: column;
+  font-size: x-small;
+}
+.col-custom{
+  width: 8rem;
+}
+.info-right{
+  font-size: medium;
+}
+.card1{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.card2{
+  width: 19rem;
+  border-radius: 10% ;
+  background-color: #F2F6FC;
+  margin-left: 0.5rem;
+  margin-bottom: 4.5rem;
+  font-size: x-small;
+  padding: 0.5rem;
+}
+.row{
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.textright{
+  float: right;
+  margin-right: 0.5rem;
+}
+.buttong{
+  display: flex;
+}

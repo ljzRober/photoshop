@@ -13,7 +13,8 @@ Page({
     startRecord: false,
     time: 0,
     timeLoop: "",
-    loadingHidden: true
+    loadingHidden: true,
+    info:{}
   },
   onLoad(option) {
     console.log("onLoad")
@@ -23,21 +24,39 @@ Page({
     if (option.orgPage=="photo"){
       console.log("选择相册导入进入")
       var tempImagePath="";
+      var tempImagePath1="";
+      let info={};
+      let imgname="";
       const eventChannel = this.getOpenerEventChannel();
       eventChannel.on('acceptDataFromOpenerPage', function (data) {
         console.log(data.imagePath)
         tempImagePath = data.imagePath[0];
+        info = data.info;
         console.log(tempImagePath)
-        wechat.uploadFile(strIp + "/eam/fileLocal/upload", tempImagePath, "file")
+        wechat.uploadFile(strIp + "/eam/fileLocal/upload", tempImagePath, "file", info)
           .then(d => {
             console.log(d);
             console.log(d.data);
+            imgname = d.data.match(/[^/]+?$/)[0];
+            console.log(imgname);
             self.setData({
               tempImagePath: strIp + "/" + d.data,//res.tempImagePath,
               camera: false,
               loadingHidden: true
             });
+            tempImagePath1 = self.data.tempImagePath;
+            console.log(tempImagePath1)
+            //图片上传云端
+            wx.cloud.uploadFile({
+              cloudPath: imgname, // 上传至云端的路径
+              filePath: tempImagePath1, // 小程序临时文件路径
+              success: res => {
+                // 返回文件 ID
+                console.log(res.fileID)
 
+              },
+              fail: console.error
+            })
           })
           .catch(e => {
             console.log(e);
