@@ -90,4 +90,57 @@
     </view>
     </van-action-sheet>
   </view>
+
+  <view>
+    <van-action-sheet show="{{ asheetshow2 }}" title="请输入自定义尺寸" bind:close="onClose2">
+      <view style="flex-direction:column">
+        <view style="margin-left:0.5rem">
+          <van-icon name="checked" color="green" />
+          <text decode="{{true}}">支持电子照&nbsp;&nbsp;</text>
+          <van-icon name="info" color="red" />
+          <text>不支持冲印</text>
+        </view>
+        <view class="card1">
+          <van-cell-group>
+            <van-field value="{{ iwidth }}" placeholder="请输入需要修改的宽度" border="{{ false }}"label="宽度" bind:change="onChange">
+              <van-button slot="button" size="small" type="primary">
+                px
+              </van-button>
+            </van-field>
+            <van-field value="{{ iheight }}" placeholder="请输入需要修改的高度" border="{{ false }}" label="高度" bind:change="onChange1">
+              <van-button slot="button" size="small" type="primary">
+                px
+              </van-button>
+            </van-field>
+          </van-cell-group>
+        </view>
+        <view>
+        <view class="card2">
+          <view class="row">
+            <text>背景色</text>
+            <text class="textright">像素大小</text>
+          </view>
+          <view class="row">
+            <text>文件大小</text>
+            <text class="textright">无要求</text>
+          </view>
+          <view class="row">
+            <text>文件格式</text>
+            <text class="textright">jpg</text>
+          </view>
+          <view class="row">
+            <text>其他要求</text>
+            <text class="textright">无要求</text>
+          </view>
+        </view>
+      </view>
+      <view class="buttong" style="flex-direction:row;">
+      <button class='btn'  bindtap="navigatetap1">
+          确认规格选择
+      </button>
+    </view>
+    </view>
+    </van-action-sheet>
+  </view>
+
 </view>

@@ -1,0 +1,34 @@
+<view>
+  <view>
+  <view  class="imgcontainer">
+  <view >
+    <image src="{{imginfo.imgid}}" class="orgimg" mode="aspectFit"></image>
+  </view>
+  </view>
+
+  <view class="card2">
+          <view class="row">
+            <text>背景色</text>
+            <text class="textright">{{imginfo.imginfo.imgcolor}}</text>
+          </view>
+          <view class="row">
+            <text>图片大小</text>
+            <text class="textright">{{imginfo.imginfo.size}}</text>
+          </view>
+          <view class="row">
+            <text>创建日期</text>
+            <text class="textright">{{imginfo.date}}</text>
+          </view>
+          <view class="row">
+            <text>其他要求</text>
+            <text class="textright">无要求</text>
+          </view>
+        </view>
+
+</view>
+  <van-submit-bar id="sbutton"
+  price="{{ 0000 }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>
+</view>

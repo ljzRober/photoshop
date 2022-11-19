@@ -4,3 +4,13 @@
   border-radius: 10%;
   margin-bottom: 0.5rem;
 }
+.container{
+  text-align: center;
+}
+.del{
+  width: 65px;
+  height: 5rem;
+  background-color: red;
+  text-align: center;
+  padding-top: 50%;
+}

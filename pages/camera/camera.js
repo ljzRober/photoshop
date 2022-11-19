@@ -2,7 +2,7 @@
 //获取应用实例 
 let app = getApp();
 let wechat = require("../../utils/wechat");
-let strIp = "http://192.168.2.182:8013";    
+let strIp = "http://192.168.0.103:8013";    
 Page({
   data: {
     device: true,
@@ -164,6 +164,11 @@ Page({
     console.log('返回------');
     wx.navigateBack({
       delta: 1
+    })
+  },
+  Photo(){
+    wx.switchTab({
+      url: '../order/order'
     })
   }
 })  

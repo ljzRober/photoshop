@@ -51,7 +51,11 @@ Page({
     asheetshow:false,
     tmp:{}
   },
-  onLoad: function () {
+  onLoad: function (option) {
+    if (option.orgPage=="pay"){
+      wx.showToast({
+        title: '支付下载完成',
+      })}
     const userinfo = wx.getStorageSync('userinfo')
     if(userinfo.openid){
       this.userinfo = userinfo

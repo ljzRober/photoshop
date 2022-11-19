@@ -7,6 +7,11 @@ Page({
   data: {
     classify:[
       {
+        title:"自定义尺寸",
+        describe:"295x413",
+        support:"电子照"
+      },
+      {
         title:"一寸",
         describe:"295x413",
         support:"电子照"
@@ -48,6 +53,7 @@ Page({
       },
     ],
     hasimage:false,
+    asheetshow2:false,
     asheetshow1:false,
     asheetshow:false,
     imgsrc:"",
@@ -64,13 +70,15 @@ Page({
     blueshow:true,
     whiteshow:false,
     imgcolor:"blue",
-    size:""
+    size:"",
+    iwidth:"",
+    iheight:""
   },
   changeasshow(){
     if(this.data.hasimage){
       this.setData({
         asheetshow:true
-      })
+      })    
     }else{
       wx.showToast({
         title: '请先上传图片',
@@ -80,11 +88,19 @@ Page({
     
   },
   changeasshow1(event){
-      this.setData({
-        asheetshow1:true,
-        asheetshow:false,
-        tmp:event.currentTarget.dataset.tmp
-      })
+    console.log("event",event)
+  if(event.currentTarget.dataset.tmp.title == "自定义尺寸"){
+    this.setData({
+      asheetshow2:true,
+      asheetshow:false
+    })
+  }else{
+    this.setData({
+      asheetshow1:true,
+      asheetshow:false,
+      tmp:event.currentTarget.dataset.tmp
+    })
+  }      
   },
   getpicture(){
     const that = this
@@ -108,6 +124,9 @@ Page({
   },
   onClose1(){
     this.setData({ asheetshow1: false });
+  },
+  onClose2(){
+    this.setData({ asheetshow2: false });
   },
   tapwhite(){
     this.setData({
@@ -133,6 +152,18 @@ Page({
       info:{imgcolor:"blue",size:""}
     })
   },
+  onChange(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      iwidth : event.detail
+    })
+  },
+  onChange1(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      iheight : event.detail
+    })
+  },
   navigatetap(){
     var isize = "info.size";
     var td = "tmp.describe";
@@ -141,6 +172,21 @@ Page({
     })
     console.log("info",this.data.info)
     this.data.info.size = this.data.tmp.describe;
+    const that = this;
+    wx.navigateTo({
+      url: '../camera/camera?orgPage=photo',
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { 
+          info:that.data.info,
+          imagePath: that.data.imgsrc})
+      }
+    })
+  },
+
+  navigatetap1(){
+    this.data.info.size = this.data.iwidth+"x"+this.data.iheight;
+    console.log("info",this.data.info)
     const that = this;
     wx.navigateTo({
       url: '../camera/camera?orgPage=photo',

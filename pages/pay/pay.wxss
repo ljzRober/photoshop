@@ -1,0 +1,29 @@
+.imgcontainer{
+  margin-left: 0.5rem;
+  width: 95%;
+  height: 20rem;
+  background-color: whitesmoke;
+  display: flex;
+  text-align: center;
+  flex-direction:column;
+}
+.card2{
+  width: 19rem;
+  border-radius: 10% ;
+  background-color: #F2F6FC;
+  margin-left: 0.5rem;
+  margin-bottom: 4.5rem;
+  font-size: x-small;
+  padding: 0.5rem;
+}
+.row{
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.textright{
+  float: right;
+  margin-right: 0.5rem;
+}
+.buttong{
+  display: flex;
+}
